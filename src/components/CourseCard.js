@@ -1,16 +1,26 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import Moment from "react-moment";
 
-const CourseCard = () => {
+const CourseCard = ({ course, handleClick }) => {
+  // console.log("Course Card data check", course);
   return (
-    <Card>
-      <Card.Img variant="top" src="https://via.placeholder.com/160x100" />
+    <Card className="card-overflow">
+      <Card.Img
+        variant="top"
+        src="https://img.lovepik.com/element/45000/5558.png_860.png"
+      />
       <Card.Body>
-        <Card.Title>Course Title</Card.Title>
-        <Card.Text>This course will help you ...</Card.Text>
+        <Card.Title onClick={() => handleClick(course._id)} id="card-title">
+          {course.title}
+        </Card.Title>
+        <Card.Text>{course.description}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">Last updated 3 mins ago</small>
+        <small className="text-muted">
+          {" "}
+          Updated <Moment fromNow>{course.createdAt}</Moment>
+        </small>
       </Card.Footer>
     </Card>
   );

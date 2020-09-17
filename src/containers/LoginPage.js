@@ -7,7 +7,7 @@ const LoginPage = ({ isAuthenticated, loading }) => {
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
+  const [errors] = useState({
     email: "",
     password: "",
   });
@@ -15,7 +15,6 @@ const LoginPage = ({ isAuthenticated, loading }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
-    
   };
   if (isAuthenticated) return <Redirect to="/" />;
   return (

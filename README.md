@@ -43,13 +43,14 @@ Progress:
 Progress
 
 upcoming
-set up redux
-connect to get all course
 
 current
-fetching getAllCourse in Homepage.js
 
 done
 setup stateless components and basic layout
 INDEX combined redux.reducers.(constants,actions,reducers)
 COURSE getAllCourse redux.reducers.(constants,actions,reducers)
+fetching getAllCourse in Homepage.js
+rendered cards in homepage
+connect to get all course
+set up redux

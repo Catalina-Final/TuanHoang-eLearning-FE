@@ -1,4 +1,19 @@
 * {
   text-align: center;
-  max-width: 100vw;
+}
+.card-overflow {
+  min-width: 30vw;
+  margin-left: 1vw;
+  margin-right: 0.3vw;
+}
+.scroll-card-deck {
+  overflow-x: scroll;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+#card-title {
+  transition: ease-in;
+}
+#card-title:hover {
+  text-decoration: underline;
 }
