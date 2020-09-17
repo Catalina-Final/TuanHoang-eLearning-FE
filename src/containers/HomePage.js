@@ -1,8 +1,8 @@
 import React from "react";
 import { CardDeck, Container, Jumbotron, Carousel } from "react-bootstrap";
-import PublicNavbar from "./PublicNavbar";
 import CourseCard from "../components/CourseCard";
 const HomePage = () => {
+  //Fetching data at home page
   return (
     <>
       {/* <Container> */}
