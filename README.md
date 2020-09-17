@@ -3,6 +3,7 @@ Technical : Mongo, Expresss, ReactJs, NodeJs
 Brief : Education Sharing Platform
 
 User : Guest, Student, Teacher, Admin
+Structure:
 
 UX :
 A/ Guest :
@@ -10,7 +11,7 @@ Begin: user will see <landing page> include : info, advertise, courses offered..
 Usage: - user will be able to click in to single Course to see <Course Detail page>
 this Detail Page will <Display> -> Course.Title, Course.Description, Course.Author, TotalUnit Number - There would be a <Button> to <Sign-in page> -> Sign-in will send request to sever, and receive data including <ROLES> which decide what to show in <DashBoard> - There would be a <Button> to <Enrol> that guest could be redirect to a <form>
 this <registration form> will send all data to backend to create newuser
-!!! The registration need to have approval from ADMIN !!!
+
 B/ All login :
 Begin: After login, with <role admin> - users will be redirected to <DashBoard>
 this <DashBoard> would have <Profile Section>, <MainFeeds Section>,.. + <Profile> display current user info and roles + <MainFeeds> display detail according to current user roles - Also, as login, users would be able to see list of unit of course and it detail - User able to logout
@@ -38,3 +39,14 @@ Progress:
 . Inntialize Front End
 
 ====Temporary end of Draft UX =====
+
+Progress
+
+upcoming
+set up redux
+connect to get all course
+
+current
+
+done
+setup stateless components and basic layout
