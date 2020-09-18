@@ -8,11 +8,14 @@ const CourseDetailPage = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const course = useSelector((state) => state.course.selectedCourse);
+  const currentUser = useSelector((state) => state.auth.user);
+
   useEffect(() => {
     if (params && params.id) {
       dispatch(courseActions.getSingleCourse(params.id));
+      dispatch(courseActions.getEnrollment(params.id, currentUser._id));
     }
-  }, [dispatch, params]);
+  }, [dispatch, params, currentUser]);
   const styles = {
     title: {
       color: "red",
@@ -24,7 +27,7 @@ const CourseDetailPage = () => {
   };
   const history = useHistory();
   const handleClickEnrol = (courseId) => {
-    history.push(`/course/${courseId}/enrol`);
+    history.push(`/course/${courseId}/enroll`);
   };
 
   const renderForm = (form) => {
@@ -42,7 +45,11 @@ const CourseDetailPage = () => {
     <div>
       <h1>CourseDetailPage</h1>
       {course && renderForm(course)}
-      <Button onClick={() => handleClickEnrol(course._id)} />
+      {course?.enrollment ? (
+        <Button>Go To Course</Button>
+      ) : (
+        <Button onClick={() => handleClickEnrol(course._id)}>Enroll</Button>
+      )}
     </div>
   );
 };

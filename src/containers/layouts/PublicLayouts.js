@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router";
 import NotFoundPage from "../NotFoundPage";
 import CourseDetailPage from "../CourseDetailPage";
 import PrivateRoute from "../Routes/PrivateRoute";
-import CheckOut from "../../components/CheckOut";
+import CheckOut from "../CheckOut";
 
 const PublicLayout = () => {
   return (
