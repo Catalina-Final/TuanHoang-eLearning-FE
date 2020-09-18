@@ -2,7 +2,6 @@ import * as types from "../constants/auth.constants";
 
 const authState = {
   user: {},
-  isAuthenticated: false,
   loading: false,
   //to get current accessTOken
   accessToken: localStorage.getItem("accessToken"),
@@ -19,7 +18,7 @@ const authReducer = (state = authState, action) => {
         ...state,
         loading: false,
         isAuthenticated: true,
-        user: { ...payload.data },
+        user: { ...payload.user },
         accessToken: payload.accessToken,
       };
     case types.GET_CURRENT_USER_SUCCESS:
@@ -39,7 +38,7 @@ const authReducer = (state = authState, action) => {
       };
     case types.LOGIN_FAILURE:
     case types.GET_CURRENT_USER_FAILURE:
-      return { ...state, loading: false };
+      return { ...state, loading: false, isAuthenticated: false };
     default:
       return state;
   }

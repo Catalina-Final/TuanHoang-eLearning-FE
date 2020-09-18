@@ -8,7 +8,7 @@ const getCurrentUser = (accessToken) => async (dispatch) => {
     api.defaults.headers.common["authorization"] = bearerToken;
   }
   try {
-    const res = await api.get("/users/me");
+    const res = await api.get("/user/me");
     dispatch({ type: types.GET_CURRENT_USER_SUCCESS, payload: res.data.data });
   } catch (error) {
     dispatch({ type: types.GET_CURRENT_USER_FAILURE, payload: error });
@@ -19,10 +19,11 @@ const loginRequest = (email, password) => async (dispatch) => {
   try {
     const res = await api.post("/auth/login", { email, password });
     console.log("authaction", res);
-    dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
+    dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.data });
     //IMPORTANT FOR PERSIT LOGIN
+    localStorage.setItem("accessToken", res.data.data.accessToken);
     api.defaults.headers.common["authorization"] =
-      "Bearer " + res.data.accessToken;
+      "Bearer " + res.data.data.accessToken;
   } catch (error) {
     dispatch({ type: types.LOGIN_FAILURE, payload: error });
   }
