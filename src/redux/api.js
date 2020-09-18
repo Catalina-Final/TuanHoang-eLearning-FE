@@ -1,6 +1,6 @@
 import axios from "axios";
 import store from "./store";
-import { alertActions } from "./actions";
+import { alertActions } from "./actions/alert.actions";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_API + "api",

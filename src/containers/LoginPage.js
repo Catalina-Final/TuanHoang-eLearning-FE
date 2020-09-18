@@ -1,21 +1,29 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import { authActions } from "../redux/actions";
 
-const LoginPage = ({ isAuthenticated, loading }) => {
+const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
+  const [errors] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const loading = useSelector((state) => state.auth.loading);
+
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    //validate
+    const { email, password } = formData;
+    dispatch(authActions.loginRequest(email, password));
   };
   if (isAuthenticated) return <Redirect to="/" />;
   return (
