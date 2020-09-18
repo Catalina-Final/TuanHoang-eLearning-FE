@@ -44,6 +44,8 @@ Progress
 
 upcoming
 
+notification
+
 current
 
 done
@@ -54,3 +56,4 @@ fetching getAllCourse in Homepage.js
 rendered cards in homepage
 connect to get all course
 set up redux
+persit login/logout with emails
