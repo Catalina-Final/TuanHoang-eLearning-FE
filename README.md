@@ -44,9 +44,9 @@ Progress
 
 upcoming
 
-notification
-
 current
+
+Authorized checkout page
 
 done
 setup stateless components and basic layout
@@ -57,3 +57,4 @@ rendered cards in homepage
 connect to get all course
 set up redux
 persit login/logout with emails
+notification

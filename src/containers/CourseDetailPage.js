@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
+import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { courseActions } from "../redux/actions";
 
 const CourseDetailPage = () => {
@@ -21,11 +22,19 @@ const CourseDetailPage = () => {
       color: "blue",
     },
   };
+  const history = useHistory();
+  const handleClickEnrol = (courseId) => {
+    history.push(`/course/${courseId}/enrol`);
+  };
 
   const renderForm = (form) => {
     const keys = Object.keys(form);
     return keys.map((e) => {
-      return <p style={styles[e] && styles[e]}> {form[e]}</p>;
+      return (
+        <>
+          <p style={styles[e] && styles[e]}> {form[e]}</p>
+        </>
+      );
     });
   };
 
@@ -33,6 +42,7 @@ const CourseDetailPage = () => {
     <div>
       <h1>CourseDetailPage</h1>
       {course && renderForm(course)}
+      <Button onClick={() => handleClickEnrol(course._id)} />
     </div>
   );
 };
