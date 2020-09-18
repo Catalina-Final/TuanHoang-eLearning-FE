@@ -9,12 +9,14 @@ import NotFoundPage from "../NotFoundPage";
 import CourseDetailPage from "../CourseDetailPage";
 import PrivateRoute from "../Routes/PrivateRoute";
 import CheckOut from "../CheckOut";
+import AlertMsg from "./AlertMsg";
 
 const PublicLayout = () => {
   return (
     <>
       <Container>
         <PublicNavbar />
+        <AlertMsg />
 
         <Switch>
           <Route exact path="/" component={HomePage} />

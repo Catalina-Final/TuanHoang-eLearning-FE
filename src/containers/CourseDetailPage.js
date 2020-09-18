@@ -13,7 +13,10 @@ const CourseDetailPage = () => {
   useEffect(() => {
     if (params && params.id) {
       dispatch(courseActions.getSingleCourse(params.id));
-      dispatch(courseActions.getEnrollment(params.id, currentUser._id));
+
+      if (currentUser) {
+        dispatch(courseActions.getEnrollment(params.id, currentUser._id));
+      }
     }
   }, [dispatch, params, currentUser]);
   const styles = {
