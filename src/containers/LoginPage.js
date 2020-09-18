@@ -6,8 +6,8 @@ import { authActions } from "../redux/actions";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "pein19053@gmail.com",
+    password: "123",
   });
   const [errors] = useState({
     email: "",

@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const { Redirect, Route } = require("react-router-dom");
 
-const PrivateRoute = ({ isAuthenticated, ...rest }) => {
-  isAuthenticated = true;
+const PrivateRoute = ({ ...rest }) => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
   if (isAuthenticated) return <Route {...rest} />;
   delete rest.component;
   return <Route {...rest} render={(props) => <Redirect to="/login" />} />;
