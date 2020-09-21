@@ -42,7 +42,7 @@ const HomePage = () => {
           <div>
             <h1 style={{ textAlign: "center" }}>Courses</h1>
             {courses.length ? (
-              <Row className="scroll-card-deck" style={{ margin: "0" }}>
+              <Row className="scroll-card-deck">
                 {courses.map((course) => (
                   <CourseCard
                     course={course}
@@ -57,7 +57,7 @@ const HomePage = () => {
           </div>
 
           <footer className="home-footer">
-            <div style={{ margin: "2vw" }}>
+            <div style={{ padding: "2vw" }}>
               <i class="fab fa-simplybuilt fa-2x"></i>
               <span className="footer-logo" style={{ marginLeft: "1vw" }}>
                 Attri-Build

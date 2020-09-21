@@ -1,5 +1,9 @@
 * {
   margin: 0;
+  padding: 0;
+}
+.button {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 .row {
   margin: 0;
@@ -11,11 +15,13 @@
   min-width: 30vw;
   margin-left: 1vw;
   margin-right: 0.3vw;
+  box-shadow: 0 10px 10px rgba(1, 1, 1, 0.9);
 }
 .scroll-card-deck {
   overflow-x: scroll;
   flex-direction: row;
   flex-wrap: nowrap;
+  padding-bottom: 4vh;
 }
 #card-title {
   transition: ease-in;

@@ -24,6 +24,9 @@ const CourseDetailPage = () => {
   const handleClickEnrol = (courseId) => {
     history.push(`/course/${courseId}/enroll`);
   };
+  const handleToLearn = (courseId) => {
+    history.push(`/course/${courseId}/learn`);
+  };
 
   const dunkcover = require("../image/dunkcover.jpg");
   return (
@@ -86,7 +89,9 @@ const CourseDetailPage = () => {
       </Row>
       <Row className="d-flex justify-content-center">
         {course?.enrollment ? (
-          <Button>Go To Course</Button>
+          <Button onClick={() => handleToLearn(course._id)}>
+            Go To Course
+          </Button>
         ) : (
           <Button onClick={() => handleClickEnrol(course._id)}>Enroll</Button>
         )}
