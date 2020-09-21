@@ -14,17 +14,19 @@ import AlertMsg from "./AlertMsg";
 const PublicLayout = () => {
   return (
     <>
-      <PublicNavbar />
-      <AlertMsg />
+      <div>
+        <PublicNavbar />
+        <AlertMsg />
 
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/register" component={RegisterPage} />
-        <Route exact path="/course/:id" component={CourseDetailPage} />
-        <PrivateRoute exact path="/course/:id/enroll" component={CheckOut} />
-        <Route component={NotFoundPage} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/course/:id" component={CourseDetailPage} />
+          <PrivateRoute exact path="/course/:id/enroll" component={CheckOut} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </div>
     </>
   );
 };

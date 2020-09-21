@@ -1,10 +1,11 @@
 import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { authActions } from "../../redux/actions";
 
 // import { logo } from "";
+const icon = require("../../image/icon.png");
 const PublicNavbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.auth.loading);
@@ -36,10 +37,34 @@ const PublicNavbar = () => {
   );
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={Link} to="/" className="mr-auto">
-        {/* <img src={logo} alt="CoderSchool" /> */}
+    <Navbar className="nav-bar-bg" expand="lg">
+      <Navbar.Brand
+        as={Link}
+        to="/"
+        className="mr-auto"
+        style={{ paddingRight: "30px" }}
+      >
+        <img
+          src={icon}
+          width="45"
+          height="45"
+          className="d-inline-block align-top"
+          alt="Elearning icon"
+        />
       </Navbar.Brand>
+      <Navbar.Brand
+        as={Link}
+        to="/"
+        className="mr-auto"
+        style={{ paddingRight: "30px" }}
+      >
+        Home
+      </Navbar.Brand>
+      <Form inline>
+        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Button variant="outline-light">Search</Button>
+      </Form>
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>

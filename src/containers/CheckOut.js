@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { courseActions, redirectActions } from "../redux/actions";
@@ -42,15 +42,67 @@ const CheckOut = () => {
   }, [redirectTo, dispatch, history]);
 
   return (
-    <div>
-      <h1>Course: {course?.title}</h1>
-      <h3>Student: {currentUser?.name}</h3>
-      <h3>Role: {course?.enrollment ? course.enrollment : "Guest"}</h3>
+    <>
+      <div className="container">
+        <Row className="d-flex flex-column" style={{ height: "100vh" }}>
+          <Col sx={6}>
+            <Container>
+              <p>
+                Congratulation {currentUser?.name}, you are taking the first
+                step closer to your Goal!
+              </p>
+              <p>Finish the confirmation step below to start learning now</p>
 
-      <Button variant="primary" onClick={handleConfirm}>
-        Confirm
-      </Button>
-    </div>
+              <h2>Course: {course?.title}</h2>
+              <h3>{course?.description}</h3>
+              <Table striped bordered hover size="sm">
+                <tbody>
+                  <tr>
+                    <td>Current Amount</td>
+                    <td>$194</td>
+                  </tr>
+                  <tr>
+                    <td>Course Price</td>
+                    <td>$10</td>
+                  </tr>
+                  <tr style={{ color: "green" }}>
+                    <td>
+                      <em>Discount</em>
+                    </td>
+                    <td colSpan="2">
+                      <em>-$3.4</em>
+                    </td>
+                  </tr>
+                  <tr
+                    style={{ fontWeight: "bold", textDecoration: "underline" }}
+                  >
+                    <td>Total</td>
+                    <td>{10 - 3.4}</td>
+                  </tr>
+                </tbody>
+              </Table>
+              <div className="d-flex justify-content-between">
+                <p>
+                  <em>*these price are VAT included</em>
+                </p>
+                <Button variant="primary" type="submit" onClick={handleConfirm}>
+                  Enroll
+                </Button>
+              </div>
+            </Container>
+          </Col>
+          <Col sx={6}>
+            <p>Here! check out one of our latest Graduate</p>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/ue1NT3QhuVU?autoplay=1&mute=1"
+              title="Video"
+            ></iframe>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 };
 

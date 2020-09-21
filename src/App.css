@@ -1,5 +1,11 @@
 * {
-  text-align: center;
+  margin: 0;
+}
+.row {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 .card-overflow {
   min-width: 30vw;
@@ -27,4 +33,10 @@
 }
 .push-spaces {
   height: 50vh;
+}
+.home-footer {
+  background-color: #bfd1fd;
+}
+.nav-bar-bg {
+  background-color: #bfd1fd;
 }
