@@ -29,14 +29,12 @@ const HomePage = () => {
         <ClipLoader color="#f86c6b" size={150} loading={loading} />
       ) : (
         <div>
-          <h1>Home Page</h1>
-          <Jumbotron fluid>
-            <Container>
-              <h1>Fluid jumbotron</h1>
-              <p>
-                This is a modified jumbotron that occupies the entire horizontal
-                space of its parent.
-              </p>
+          <h1>AttriBuild</h1>
+          <Jumbotron fluid className="homepage-jumbotron-1">
+            <Container className="push-spaces">
+              <br></br>
+              <br></br>
+              <p>Building your attributes and renew your future.</p>
             </Container>
           </Jumbotron>
 

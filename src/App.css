@@ -17,3 +17,14 @@
 #card-title:hover {
   text-decoration: underline;
 }
+.homepage-jumbotron-1 {
+  background-image: url(../src/image/Elearning.jpeg);
+  background-size: cover;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+.push-spaces {
+  height: 50vh;
+}
