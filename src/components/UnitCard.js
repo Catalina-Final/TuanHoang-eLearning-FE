@@ -1,12 +1,16 @@
 import React from "react";
-import { Card, Button, Badge } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const UnitCard = ({ unit, handleClickUnit }) => {
   return (
     <>
-      <Button variant="light" onClick={() => handleClickUnit(unit._id)}>
+      <Button
+        variant="light"
+        onClick={() =>
+          handleClickUnit(unit.title, unit.content, unit.unitVideo)
+        }
+      >
         {unit.title}
-        <span>: {unit.content}</span>
       </Button>
     </>
   );

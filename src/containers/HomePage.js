@@ -99,31 +99,33 @@ const HomePage = () => {
                   </div>
                 </Col>
               </Row>
-
-              <Row className="d-flex justify-content-between">
-                <div
-                  className="d-flex justify-content-between"
-                  style={{ width: "50vw" }}
-                >
-                  <div>
-                    <a href="/">Legal</a>
-                  </div>
-                  <div>
-                    <a href="/">Privacy Center</a>
-                  </div>
-                  <div>
-                    <a href="/">Privacy Policy</a>
-                  </div>
-                  <div>
-                    <a href="/">Cookies</a>
-                  </div>
-                  <div>
-                    <a href="/">About Ads</a>
-                  </div>
-                </div>
-                <div>Vietnam</div>
-              </Row>
             </div>
+            <Row
+              className="d-flex justify-content-between"
+              style={{ backgroundColor: "grey" }}
+            >
+              <div
+                className="d-flex justify-content-between"
+                style={{ width: "50vw", paddingLeft: "2vw" }}
+              >
+                <div>
+                  <a href="/">Legal</a>
+                </div>
+                <div>
+                  <a href="/">Privacy Center</a>
+                </div>
+                <div>
+                  <a href="/">Privacy Policy</a>
+                </div>
+                <div>
+                  <a href="/">Cookies</a>
+                </div>
+                <div>
+                  <a href="/">About Ads</a>
+                </div>
+              </div>
+              <div style={{ paddingRight: "3vw" }}>Vietnam</div>
+            </Row>
           </footer>
         </div>
       )}

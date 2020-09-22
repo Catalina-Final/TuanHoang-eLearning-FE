@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Moment from "react-moment";
-const courseIcon = require("../image/dunk.jpg");
 
 const CourseCard = ({ course, handleClick }) => {
   // console.log("Course Card data check", course);
@@ -9,9 +8,10 @@ const CourseCard = ({ course, handleClick }) => {
     <Card className="card-overflow">
       <Card.Img
         variant="top"
-        src={courseIcon}
+        src={course.image}
         height="200px"
         style={{ boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)" }}
+        att="Card image"
       />
       <Card.Body>
         <Card.Title onClick={() => handleClick(course._id)} id="card-title">

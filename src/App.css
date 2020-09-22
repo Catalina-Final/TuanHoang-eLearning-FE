@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+a {
+  color: inherit;
+}
+
 .button {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }

@@ -10,7 +10,10 @@ const StudentCourseDetail = () => {
   const dispatch = useDispatch();
   const course = useSelector((state) => state.course.selectedCourse);
   const currentUser = useSelector((state) => state.auth.user);
-  const [currentUnit, setCurrentUnit] = useState("nothing");
+  const [currentUnit, setCurrentUnit] = useState({
+    title: "Please Select Unit",
+    content: "Select the unit on the left menu to view detail",
+  });
   useEffect(() => {
     if (params && params.id) {
       dispatch(courseActions.getSingleCourse(params.id));
@@ -19,14 +22,16 @@ const StudentCourseDetail = () => {
       }
     }
   }, [dispatch, params, currentUser]);
-  const handleClickUnit = (unitId) => {
-    setCurrentUnit(unitId);
+  const handleClickUnit = (title, content, video) => {
+    setCurrentUnit({ ...currentUnit, title, content, video });
+    console.log(currentUnit);
   };
   return (
     <>
       <h1>{course && course.title}</h1>
+      <h3>List of Units</h3>
       <Row>
-        <Col md={4}>
+        <Col md={4} className="d-flex flex-column align-items-start">
           {course &&
             course.units.map((unit, index) => {
               return (
@@ -38,7 +43,18 @@ const StudentCourseDetail = () => {
               );
             })}
         </Col>
-        <Col md={8}>{currentUnit}</Col>
+        <Col md={8}>
+          <h4>{currentUnit && currentUnit.title}</h4>
+          <h6>Content : </h6>
+          <p>{currentUnit && currentUnit.content}</p>
+          <iframe
+            width="600"
+            height="345"
+            src={`http://www.youtube.com/embed/${currentUnit.video}?autoplay=1&mute=1`}
+            frameborder="1.5"
+            allowfullscreen
+          ></iframe>
+        </Col>
       </Row>
     </>
   );
