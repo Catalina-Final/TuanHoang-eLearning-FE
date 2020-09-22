@@ -2,14 +2,14 @@ import React from "react";
 
 import { Route, Switch } from "react-router-dom";
 import PublicLayout from "../layouts/PublicLayouts";
-import DashboardPage from "../DashboardPage";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 import PrivateRoute from "./PrivateRoute";
 
 const Routes = (props) => {
   return (
     <Switch>
-      <PrivateRoute exact path="/dashboard" component={DashboardPage} />
+      <PrivateRoute path="/dashboard" component={DashboardLayout} />
       <Route path="/" component={PublicLayout} />
     </Switch>
   );

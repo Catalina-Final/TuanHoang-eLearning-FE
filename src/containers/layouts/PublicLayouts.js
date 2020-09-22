@@ -31,6 +31,7 @@ const PublicLayout = () => {
           />
 
           <PrivateRoute exact path="/course/:id/enroll" component={CheckOut} />
+
           <Route component={NotFoundPage} />
         </Switch>
       </div>

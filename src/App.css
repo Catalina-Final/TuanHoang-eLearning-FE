@@ -16,7 +16,8 @@ a {
   display: none;
 }
 .card-overflow {
-  min-width: 30vw;
+  min-width: 16vw;
+  object-fit: cover;
   margin-left: 1vw;
   margin-right: 0.3vw;
   box-shadow: 0 10px 10px rgba(1, 1, 1, 0.9);

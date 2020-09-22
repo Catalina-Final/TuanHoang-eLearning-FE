@@ -64,9 +64,25 @@ const getEnrollment = (courseId, userId) => async (dispatch) => {
   }
 };
 
+const getEnrollCourses = () => async (dispatch) => {
+  dispatch({ type: types.GET_ENROLL_COURSES_REQUEST, payload: null });
+  try {
+    const res = await api.get(`/user/courses`);
+    // console.log("receive from sever", res);
+    dispatch({
+      type: types.GET_ENROLL_COURSES_SUCCESS,
+      payload: res.data.data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: types.GET_ENROLL_COURSES_FAILURE, payload: error });
+  }
+};
+
 export const courseActions = {
   getAllCourse,
   getSingleCourse,
   enrollCourse,
   getEnrollment,
+  getEnrollCourses,
 };

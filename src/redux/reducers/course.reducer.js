@@ -3,6 +3,7 @@ import * as types from "../constants/course.constants";
 const courseState = {
   courses: [],
   loading: false,
+  enrollCourses: [],
 };
 
 const courseReducer = (state = courseState, action) => {
@@ -49,6 +50,16 @@ const courseReducer = (state = courseState, action) => {
     case types.GET_ENROLLMENT_FAILURE:
       return { ...state, loading: false };
 
+    case types.GET_ENROLL_COURSES_REQUEST:
+      return { ...state, loading: true };
+    case types.GET_ENROLL_COURSES_SUCCESS:
+      return {
+        ...state,
+        enrollCourses: payload,
+        loading: false,
+      };
+    case types.GET_ENROLL_COURSES_FAILURE:
+      return { ...state, loading: false };
     default:
       return state;
   }
