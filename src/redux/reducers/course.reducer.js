@@ -40,7 +40,10 @@ const courseReducer = (state = courseState, action) => {
     case types.GET_ENROLLMENT_SUCCESS:
       return {
         ...state,
-        selectedCourse: { ...state.selectedCourse, enrollment: payload.status },
+        selectedCourse: {
+          ...state.selectedCourse,
+          enrollment: payload && payload.status ? payload.status : false,
+        },
         loading: false,
       };
     case types.GET_ENROLLMENT_FAILURE:

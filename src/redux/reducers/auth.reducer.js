@@ -31,9 +31,11 @@ const authReducer = (state = authState, action) => {
         loading: false,
       };
     case types.LOGIN_FAILURE:
+    case types.REGISTER_FAILURE:
     case types.GET_CURRENT_USER_FAILURE:
       return { ...state, loading: false };
-
+    case types.REGISTER_SUCCESS:
+      return { ...state, loading: false };
     default:
       return state;
   }

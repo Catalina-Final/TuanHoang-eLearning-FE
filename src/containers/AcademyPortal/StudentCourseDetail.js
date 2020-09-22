@@ -51,8 +51,8 @@ const StudentCourseDetail = () => {
             width="600"
             height="345"
             src={`http://www.youtube.com/embed/${currentUnit.video}?autoplay=1&mute=1`}
-            frameborder="1.5"
-            allowfullscreen
+            frameBorder="1.5"
+            allowFullScreen
           ></iframe>
         </Col>
       </Row>

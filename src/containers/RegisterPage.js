@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../redux/actions/auth.actions";
+import { redirectActions } from "../redux/actions";
 
-const RegisterPage = ({ isAuthenticated, loading }) => {
+const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,16 +18,33 @@ const RegisterPage = ({ isAuthenticated, loading }) => {
     password: "",
     password2: "",
   });
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const loading = useSelector((state) => state.auth.loading);
+  const history = useHistory();
+  const redirectTo = useSelector((state) => state.redirect.redirectTo);
+  useEffect(() => {
+    console.log(redirectTo);
+    if (redirectTo) {
+      if (redirectTo === "__GO_BACK__") {
+        history.goBack();
+        dispatch(redirectActions.setRedirectTo(""));
+      } else {
+        history.push(redirectTo);
+        dispatch(redirectActions.setRedirectTo(""));
+      }
+    }
+  }, [redirectTo, dispatch, history]);
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { password, password2 } = formData;
+    const { name, email, password, password2 } = formData;
     if (password !== password2) {
       setErrors({ ...errors, password2: "Passwords do not match" });
       return;
     }
-    // TODO: handle Register
+    dispatch(authActions.register(name, email, password));
   };
   if (isAuthenticated) return <Redirect to="/" />;
   return (

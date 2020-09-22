@@ -58,7 +58,7 @@ const HomePage = () => {
 
           <footer className="home-footer">
             <div style={{ padding: "2vw" }}>
-              <i class="fab fa-simplybuilt fa-2x"></i>
+              <i className="fab fa-simplybuilt fa-2x"></i>
               <span className="footer-logo" style={{ marginLeft: "1vw" }}>
                 Attri-Build
               </span>

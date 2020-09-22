@@ -1,6 +1,7 @@
 import * as types from "../constants/auth.constants";
 import api from "../api";
 import { alertActions } from "./alert.actions";
+import { redirectActions } from "./redirect.actions";
 
 const getCurrentUser = (accessToken) => async (dispatch) => {
   dispatch({ type: types.GET_CURRENT_USER_REQUEST, payload: null });
@@ -38,9 +39,26 @@ const logout = () => (dispatch) => {
   dispatch({ type: types.LOGOUT, payload: null });
   dispatch(alertActions.setAlert(`Soooo longggg mate`, "success"));
 };
+const register = (name, email, password) => async (dispatch) => {
+  dispatch({ type: types.REGISTER_REQUEST, payload: null });
+  try {
+    const res = await api.post("/user", { name, email, password });
+    dispatch({ type: types.REGISTER_SUCCESS, payload: res.data.data });
+    dispatch(
+      alertActions.setAlert(
+        `Account Created Success! Welcome to AttriBute, ${name} `,
+        "success"
+      )
+    );
+    dispatch(redirectActions.setRedirectTo("/"));
+  } catch (error) {
+    dispatch({ type: types.REGISTER_FAILURE, payload: error });
+  }
+};
 
 export const authActions = {
   loginRequest,
   getCurrentUser,
   logout,
+  register,
 };
