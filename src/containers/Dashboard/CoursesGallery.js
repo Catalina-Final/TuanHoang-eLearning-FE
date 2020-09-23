@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
@@ -22,12 +22,11 @@ const CoursesGallery = () => {
       <Container fluid>
         <h4 className="mt-3">Course Gallery</h4>
         <h6>Enrolled Course</h6>
-        <div className="d-flex ">
+        <Row className="scroll-card-deck">
           {enrollCourses.map((course) => (
             <EnrolledCourse key={course._id} course={course.course} />
           ))}
-        </div>
-
+        </Row>
         <h6>Suggested Course</h6>
       </Container>
     </>

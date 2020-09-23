@@ -4,6 +4,7 @@ const courseState = {
   courses: [],
   loading: false,
   enrollCourses: [],
+  teachers: [],
 };
 
 const courseReducer = (state = courseState, action) => {
@@ -19,7 +20,12 @@ const courseReducer = (state = courseState, action) => {
 
     case types.SINGLE_COURSE_REQUEST_SUCCESS:
       // console.log("Course req success", payload);
-      return { ...state, selectedCourse: payload, loading: false };
+      return {
+        ...state,
+        selectedCourse: payload.course,
+        teachers: payload.teachers,
+        loading: false,
+      };
 
     case types.COURSE_REQUEST_FAILURE:
     case types.SINGLE_COURSE_REQUEST_FAILURE:

@@ -13,12 +13,11 @@ const CourseDetailPage = () => {
   useEffect(() => {
     if (params && params.id) {
       dispatch(courseActions.getSingleCourse(params.id));
-
-      if (currentUser) {
-        dispatch(courseActions.getEnrollment(params.id, currentUser._id));
-      }
+      // if (currentUser) {
+      //   dispatch(courseActions.getEnrollment(params.id, currentUser._id));
+      // }
     }
-  }, [dispatch, params, currentUser]);
+  }, [dispatch, params]);
 
   const history = useHistory();
   const handleClickEnrol = (courseId) => {
@@ -29,6 +28,10 @@ const CourseDetailPage = () => {
   };
 
   const dunkcover = require("../image/dunkcover.jpg");
+
+  // const foo = (id, arr) => {
+  //   const ;
+  // }
   return (
     <div>
       <img src={dunkcover} style={{ width: "100%" }} alt="course detail" />
@@ -88,7 +91,9 @@ const CourseDetailPage = () => {
         </Col>
       </Row>
       <Row className="d-flex justify-content-center">
-        {course?.enrollment ? (
+        {course &&
+        course.students.findIndex((el) => el.student === currentUser._id) !==
+          -1 ? (
           <Button onClick={() => handleToLearn(course._id)}>
             Go To Course
           </Button>

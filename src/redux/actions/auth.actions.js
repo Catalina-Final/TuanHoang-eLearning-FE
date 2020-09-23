@@ -55,10 +55,23 @@ const register = (name, email, password) => async (dispatch) => {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }
 };
-
+const getAllUser = (accessToken) => async (dispatch) => {
+  dispatch({ type: types.GET_ALL_USER_REQUEST, payload: null });
+  if (accessToken) {
+    const bearerToken = "Bearer " + accessToken;
+    api.defaults.headers.common["authorization"] = bearerToken;
+  }
+  try {
+    const res = await api.get("/user/");
+    dispatch({ type: types.GET_ALL_USER_SUCCESS, payload: res.data.data });
+  } catch (error) {
+    dispatch({ type: types.GET_ALL_USER_FAILURE, payload: error });
+  }
+};
 export const authActions = {
   loginRequest,
   getCurrentUser,
   logout,
   register,
+  getAllUser,
 };
