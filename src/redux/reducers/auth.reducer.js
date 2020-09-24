@@ -17,12 +17,20 @@ const authReducer = (state = authState, action) => {
       return { ...state, loading: true };
     case types.GET_CURRENT_USER_SUCCESS:
     case types.LOGIN_SUCCESS:
+      localStorage.setItem("accessToken", payload.accessToken);
       return {
         ...state,
         loading: false,
         isAuthenticated: true,
         user: { ...payload.user },
         accessToken: payload.accessToken,
+      };
+    case types.GET_CURRENT_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuthenticated: true,
+        user: { ...payload.user },
       };
     case types.LOGOUT:
       return {

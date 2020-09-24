@@ -22,9 +22,9 @@ a {
   box-shadow: 0 10px 10px rgba(1, 1, 1, 0.9);
   transition: ease-in-out;
 }
-.card-overflow :hover {
+/* .card-overflow :hover {
   transform: scale(0.5);
-}
+} */
 #course-image {
   object-fit: cover;
 }

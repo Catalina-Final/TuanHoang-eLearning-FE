@@ -50,7 +50,7 @@ const register = (name, email, password) => async (dispatch) => {
         "success"
       )
     );
-    dispatch(redirectActions.setRedirectTo("/"));
+    dispatch(redirectActions.setRedirectTo("/login"));
   } catch (error) {
     dispatch({ type: types.REGISTER_FAILURE, payload: error });
   }
