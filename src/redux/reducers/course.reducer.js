@@ -13,6 +13,9 @@ const courseReducer = (state = courseState, action) => {
   switch (type) {
     case types.COURSE_REQUEST:
     case types.SINGLE_COURSE_REQUEST:
+    case types.UPDATE_COURSE_REQUEST:
+    case types.ASSIGN_TEACHER_REQUEST:
+    case types.UNASSIGN_TEACHER_REQUEST:
       return { ...state, loading: true };
 
     case types.COURSE_REQUEST_SUCCESS:
@@ -26,9 +29,52 @@ const courseReducer = (state = courseState, action) => {
         teachers: payload.teachers,
         loading: false,
       };
-
+    case types.UPDATE_COURSE_SUCCESS:
+      return {
+        ...state,
+        selectedCourse: { ...state.selectedCourse, ...payload },
+        courses: state.courses.map((course) => {
+          if (course._id !== payload._id) return course;
+          return { ...course, ...payload };
+        }),
+        loading: false,
+        redirectTo: "__GO_BACK__",
+      };
+    case types.ASSIGN_TEACHER_SUCCESS:
+      return {
+        ...state,
+        courses: state.courses.map((course) => {
+          if (course._id !== payload.id) return course;
+          return { ...course, teachers: payload.teachers };
+        }),
+        selectedCourse: {
+          ...state.selectedCourse,
+          teacherss: payload.teachers,
+        },
+      };
+    case types.UNASSIGN_TEACHER_SUCCESS:
+      return {
+        ...state,
+        courses: state.courses.map((course) => {
+          return {
+            ...course,
+            teachers: course.teachers.filter(
+              (teaching) => teaching._id !== payload
+            ),
+          };
+        }),
+        selectedCourse: {
+          ...state.selectedCourse,
+          teacherss: state.selectedCourse.teacherss.filter(
+            (teaching) => teaching._id !== payload
+          ),
+        },
+      };
+    case types.UNASSIGN_TEACHER_FAILURE:
+    case types.ASSIGN_TEACHER_FAILURE:
     case types.COURSE_REQUEST_FAILURE:
     case types.SINGLE_COURSE_REQUEST_FAILURE:
+    case types.UPDATE_COURSE_FAILURE:
       return { ...state, loading: false };
 
     case types.ENROLL_COURSE_REQUEST:

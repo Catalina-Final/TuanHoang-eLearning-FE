@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions, courseActions } from "../../redux/actions";
 import AssignModal from "./AdminModals/AssignModal";
 import CourseEditModal from "./AdminModals/CourseEditModal";
+import DeleteConfirm from "./AdminModals/DeleteConfirm";
 const AdminGallery = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.course.loading);
@@ -27,6 +28,10 @@ const AdminGallery = () => {
       case "edit":
         return (
           <CourseEditModal course={selectedCourse} handleClose={handleClose} />
+        );
+      case "delete":
+        return (
+          <DeleteConfirm course={selectedCourse} handleClose={handleClose} />
         );
       default:
         return;
@@ -55,7 +60,7 @@ const AdminGallery = () => {
   return (
     <>
       {" "}
-      <h1>All avaiable course</h1>
+      <h1>Courses Management</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -75,7 +80,12 @@ const AdminGallery = () => {
                 <td>{course.units.length}</td>
                 <td>{new Date(course.createdAt).toDateString()}</td>
                 <td>{course.enrollmentCount}</td>
-                <td>{course.teachers.length}</td>
+                <td>
+                  {course.teachers.reduce(
+                    (names, teacher) => names + teacher.teacherName,
+                    ""
+                  )}
+                </td>
                 <td>
                   <Button
                     variant="light"
@@ -88,6 +98,12 @@ const AdminGallery = () => {
                     onClick={() => handleShow(course, "assign")}
                   >
                     Assign
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleShow(course, "delete")}
+                  >
+                    X
                   </Button>
                 </td>
               </tr>

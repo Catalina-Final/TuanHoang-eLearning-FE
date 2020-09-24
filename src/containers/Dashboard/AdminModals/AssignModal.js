@@ -6,6 +6,7 @@ import { authActions, courseActions } from "../../../redux/actions";
 const AssignModal = ({ course, handleClose }) => {
   const selectedCourse = useSelector((state) => state.course.selectedCourse);
   const users = useSelector((state) => state.auth.users);
+  const currentUser = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -13,16 +14,23 @@ const AssignModal = ({ course, handleClose }) => {
     dispatch(authActions.getAllUser());
   }, [course]);
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    selectedCourse: selectedCourse,
+  });
   const handleChange = (e) => {
-    if (e.target.name === "images") {
-      console.log(e.target.files);
-      setFormData({ ...formData, images: e.target.files });
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log("----", users);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const courseId = selectedCourse._id;
+    const teacherId = formData.teacher;
+    dispatch(courseActions.assignTeacher(courseId, teacherId));
+  };
+  const handleUnassign = (teachingId) => {
+    dispatch(courseActions.unAssignTeacher(teachingId));
+  };
+
   return (
     <>
       {" "}
@@ -30,27 +38,49 @@ const AssignModal = ({ course, handleClose }) => {
         <Modal.Title>Manage Teacher</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {selectedCourse &&
-          selectedCourse.teachers.map((teacher) => {
-            return <p>{teacher.teacher.name}</p>;
-          })}
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Example select</Form.Label>
-          <Form.Control as="select">
-            {users
-              .filter((el) => el.role == "teacher")
-              .map((e) => (
-                <option>{e.name}</option>
-              ))}
-          </Form.Control>
-        </Form.Group>
-        <Button variant="light">Add teacher</Button>
+        <Form
+          onChange={(e) => {
+            setFormData({ teacher: e.target.value });
+          }}
+        >
+          <h5>Teachers:</h5>
+          {selectedCourse &&
+            selectedCourse.teacherss.map((teacher) => {
+              return (
+                <p className="d-flex justify-content-between">
+                  <span>{teacher.teacher.name}</span>
+                  <span>
+                    <Button
+                      variant="dark"
+                      onClick={() => handleUnassign(teacher._id)}
+                    >
+                      Unassign
+                    </Button>
+                  </span>
+                </p>
+              );
+            })}
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Example select</Form.Label>
+            <Form.Control as="select">
+              {users
+                .filter((el) => el.role == "teacher")
+                .map((e) => (
+                  <option value={e._id} key={e._id}>
+                    {e.name}
+                  </option>
+                ))}
+            </Form.Control>
+          </Form.Group>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="secondary" type="button" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary">Confirm</Button>
+        <Button variant="primary" type="button" onClick={handleSubmit}>
+          Confirm Assign
+        </Button>
       </Modal.Footer>
     </>
   );

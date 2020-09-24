@@ -58,12 +58,8 @@ const PublicNavbar = () => {
         className="mr-auto"
         style={{ paddingRight: "30px" }}
       >
-        Home
+        eBall
       </Navbar.Brand>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-light">Search</Button>
-      </Form>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

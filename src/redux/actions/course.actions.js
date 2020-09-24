@@ -32,6 +32,29 @@ const getSingleCourse = (courseId) => async (dispatch) => {
   }
 };
 
+const updateCourse = (courseId, title, description, price) => async (
+  dispatch
+) => {
+  dispatch({ type: types.UPDATE_COURSE_REQUEST, payload: null });
+  try {
+    // let formData = new FormData();
+    // formData.set("title", title);
+    // formData.set("content", content);
+    const res = await api.put(`/course/${courseId}`, {
+      title,
+      description,
+      price,
+    });
+    dispatch({
+      type: types.UPDATE_COURSE_SUCCESS,
+      payload: res.data.data,
+    });
+    dispatch(alertActions.setAlert("The course has been updated!", "success"));
+  } catch (error) {
+    dispatch({ type: types.UPDATE_COURSE_FAILURE, payload: error });
+  }
+};
+
 const enrollCourse = (courseId, accessToken) => async (dispatch) => {
   dispatch({ type: types.ENROLL_COURSE_REQUEST, payload: null });
   try {
@@ -79,10 +102,42 @@ const getEnrollCourses = () => async (dispatch) => {
   }
 };
 
+const assignTeacher = (courseId, teacherId) => async (dispatch) => {
+  dispatch({ type: types.ASSIGN_TEACHER_REQUEST, payload: null });
+  try {
+    const res = await api.post(`/course/${courseId}/teacher/${teacherId}`);
+    dispatch({
+      type: types.ASSIGN_TEACHER_SUCCESS,
+      payload: {
+        teachers: res.data.data,
+        id: courseId,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: types.ASSIGN_TEACHER_FAILURE, payload: error });
+  }
+};
+const unAssignTeacher = (teachingId) => async (dispatch) => {
+  dispatch({ type: types.UNASSIGN_TEACHER_REQUEST, payload: null });
+  try {
+    const res = await api.delete(`/course/teaching/unassign/${teachingId}`);
+    dispatch({
+      type: types.UNASSIGN_TEACHER_SUCCESS,
+      payload: teachingId,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: types.UNASSIGN_TEACHER_FAILURE, payload: error });
+  }
+};
 export const courseActions = {
   getAllCourse,
   getSingleCourse,
   enrollCourse,
   getEnrollment,
   getEnrollCourses,
+  updateCourse,
+  assignTeacher,
+  unAssignTeacher,
 };

@@ -7,6 +7,7 @@ const CourseCard = ({ course, handleClick }) => {
   return (
     <Card className="card-overflow">
       <Card.Img
+        id="course-image"
         variant="top"
         src={course.image}
         height="200px"

@@ -28,8 +28,7 @@ const HomePage = () => {
       {loading ? (
         <ClipLoader color="#f86c6b" size={150} loading={loading} />
       ) : (
-        <div style={{ backgroundColor: "rgb(255, 191, 128)" }}>
-          <h1 style={{ textAlign: "center" }}>Attri-Build</h1>
+        <div style={{ backgroundColor: "none" }}>
           <Jumbotron fluid className="homepage-jumbotron-1">
             <Container className="push-spaces">
               <br></br>
@@ -40,7 +39,7 @@ const HomePage = () => {
             Start building your value now !
           </div>
           <div>
-            <h1 style={{ textAlign: "center" }}>Courses</h1>
+            <h4 style={{ textAlign: "center" }}>Courses</h4>
             {courses.length ? (
               <Row className="scroll-card-deck">
                 {courses.map((course) => (
@@ -50,6 +49,17 @@ const HomePage = () => {
                     handleClick={handleClickCourseCard}
                   />
                 ))}
+                <div
+                  style={{
+                    background: "rgb(0,0,0)",
+                    background:
+                      "linear-gradient(86deg, rgba(105,105,105,1) 100%,rgba(38,38,38,1) 47%, rgba(27,27,27,1) 31%, rgba(0,0,0,1) 0%, rgba(12,12,12,1) 9%,  rgba(78,78,78,1) 87%)",
+                  }}
+                >
+                  <p>more</p>
+                  <p>skill</p>
+                  <p>are</p>
+                </div>
               </Row>
             ) : (
               <p>no course</p>
@@ -58,28 +68,27 @@ const HomePage = () => {
 
           <footer className="home-footer">
             <div style={{ padding: "2vw" }}>
-              <i className="fab fa-simplybuilt fa-2x"></i>
-              <span className="footer-logo" style={{ marginLeft: "1vw" }}>
-                Attri-Build
-              </span>
+              <div className="d-flex">
+                <i className="fab fa-simplybuilt fa-2x"></i>
+                <h4 className="footer-logo" style={{ marginLeft: "1vw" }}>
+                  eBall
+                </h4>
+              </div>
 
               <Row>
                 <Col style={{ paddingLeft: "0" }}>
-                  <h1>Company</h1>
+                  <h6>Company</h6>
                   <p>About</p>
                   <p>Jobs</p>
-                  <p>For the Record</p>
                 </Col>
                 <Col>
-                  <h1>Communities</h1>
+                  <h6>Communities</h6>
                   <p>For Artists</p>
                   <p>Developers</p>
                   <p>Brands</p>
-                  <p>Investors</p>
-                  <p>Vendors</p>
                 </Col>
                 <Col>
-                  <h1>Useful Links</h1>
+                  <h6>Useful Links</h6>
                   <p>Help</p>
                   <p>Web Player</p>
                   <p>Free Mobile App</p>

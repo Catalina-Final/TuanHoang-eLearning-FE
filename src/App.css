@@ -17,11 +17,18 @@ a {
 }
 .card-overflow {
   min-width: 16vw;
-  object-fit: cover;
   margin-left: 1vw;
   margin-right: 0.3vw;
   box-shadow: 0 10px 10px rgba(1, 1, 1, 0.9);
+  transition: ease-in-out;
 }
+.card-overflow :hover {
+  transform: scale(0.5);
+}
+#course-image {
+  object-fit: cover;
+}
+
 .scroll-card-deck {
   overflow-x: scroll;
   flex-direction: row;
@@ -35,7 +42,7 @@ a {
   text-decoration: underline;
 }
 .homepage-jumbotron-1 {
-  background-image: url(../src/image/Elearning.jpeg);
+  background-image: url("https://data.whicdn.com/images/281140219/original.jpg");
   background-size: cover;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -46,8 +53,8 @@ a {
   height: 50vh;
 }
 .home-footer {
-  background-color: #bfd1fd;
+  background-color: black;
 }
 .nav-bar-bg {
-  background-color: #bfd1fd;
+  background-color: #63615fbd;
 }
