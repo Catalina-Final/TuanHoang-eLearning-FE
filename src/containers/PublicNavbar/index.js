@@ -10,6 +10,7 @@ const PublicNavbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.auth.loading);
   const dispatch = useDispatch();
+
   const handleLogout = () => {
     dispatch(authActions.logout());
   };
@@ -51,7 +52,7 @@ const PublicNavbar = () => {
 
   console.log(show);
   return (
-    <Navbar className={`nav-bar ${show && `nav-white`}`} expand="lg">
+    <Navbar className={`nav-bar ${show && "nav-white"}`} expand="lg">
       <Navbar.Brand
         as={Link}
         to="/"
