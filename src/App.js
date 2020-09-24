@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       {isAuthenticated === undefined ? (
-        <ClipLoader color="#f86c6b" size={150} loading={true} />
+        <ClipLoader color="#00000" size={150} loading={true} />
       ) : (
         <Router>
           <Routes />

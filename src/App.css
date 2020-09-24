@@ -1,9 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
 }
 a {
   color: inherit;
+}
+.app {
+  color: black;
 }
 
 .button {
@@ -42,7 +47,7 @@ a {
   text-decoration: underline;
 }
 .homepage-jumbotron-1 {
-  background-image: url("https://data.whicdn.com/images/281140219/original.jpg");
+  background-image: url("https://coverfiles.alphacoders.com/367/36725.jpg");
   background-size: cover;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
@@ -55,6 +60,17 @@ a {
 .home-footer {
   background-color: black;
 }
-.nav-bar-bg {
-  background-color: #63615fbd;
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  transition-timing-function: ease-out;
+  transition: all 1.5s;
+}
+.nav-white {
+  background-color: pink;
 }

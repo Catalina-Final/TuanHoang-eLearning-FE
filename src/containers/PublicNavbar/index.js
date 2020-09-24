@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Nav, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { authActions } from "../../redux/actions";
@@ -36,8 +36,22 @@ const PublicNavbar = () => {
     </Nav>
   );
 
+  const [show, handleShow] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scollY > 1) {
+        handleShow(true);
+      } else handleShow(false);
+    });
+    return () => {
+      window.removeEventListener("scroll");
+    };
+  }, []);
+
+  console.log(show);
   return (
-    <Navbar className="nav-bar-bg" expand="lg">
+    <Navbar className={`nav-bar ${show && `nav-white`}`} expand="lg">
       <Navbar.Brand
         as={Link}
         to="/"
