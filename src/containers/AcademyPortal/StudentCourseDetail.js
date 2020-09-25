@@ -50,7 +50,7 @@ const StudentCourseDetail = () => {
           <iframe
             width="600"
             height="345"
-            src={`http://www.youtube.com/embed/${currentUnit.video}?autoplay=1&mute=1`}
+            src={`https://www.youtube.com/embed/${currentUnit.video}?autoplay=1&mute=1`}
             frameBorder="1.5"
             allowFullScreen
           ></iframe>
