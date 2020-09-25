@@ -26,7 +26,8 @@ const DashboardLayout = () => {
   return (
     <>
       <PublicNavbar />
-      <Container fluid>
+
+      <Container fluid style={{ marginTop: "30vh" }}>
         <Row>
           <SideMenu />
           <Col md={9} lg={10}>
