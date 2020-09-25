@@ -113,19 +113,26 @@ const AdminGallery = () => {
       </Table>
       <h1>All user</h1>
       <Button onClick={showAllUser}>showAllUser</Button>
-      <ol>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>User Role</th>
+            <th>Date Join</th>
+          </tr>
+        </thead>
         {users.map((user) => {
           return (
-            <li>
-              {user.name}
-              <span>{user.role}</span>
-              <span>
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.role}</td>
+              <td>
                 Joined <Moment fromNow>{user.createdAt}</Moment>
-              </span>
-            </li>
+              </td>
+            </tr>
           );
         })}
-      </ol>
+      </Table>
       <Modal
         show={show}
         onHide={handleClose}
