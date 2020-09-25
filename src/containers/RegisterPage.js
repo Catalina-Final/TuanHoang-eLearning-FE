@@ -48,7 +48,7 @@ const RegisterPage = () => {
   };
   if (isAuthenticated) return <Redirect to="/" />;
   return (
-    <Container>
+    <Container style={{ marginTop: "30vh" }}>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
           <div className="text-center mb-3">

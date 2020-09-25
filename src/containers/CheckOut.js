@@ -77,7 +77,13 @@ const CheckOut = () => {
                     style={{ fontWeight: "bold", textDecoration: "underline" }}
                   >
                     <td>Total</td>
-                    <td>{10 - 3.4}</td>
+                    <td>${10 - 3.4}</td>
+                  </tr>
+                  <tr
+                    style={{ fontWeight: "bold", textDecoration: "underline" }}
+                  >
+                    <td>New Balance</td>
+                    <td>${194 - 10 - 3.4}</td>
                   </tr>
                 </tbody>
               </Table>

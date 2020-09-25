@@ -40,7 +40,8 @@ const HomePage = () => {
           <Landing />
           <Container style={{ padding: "30px" }}>
             <div className="container d-flex flex-column text-center justify-content-center align-content-center align-items-center">
-              <img src={banner} style={{ objectFit: "cover" }} />
+              <img src={banner} style={{ objectFit: "cover", width: "70vw" }} />
+
               <p>
                 It's more than training. Being in a environment to be able to
                 learn, support and challenge each other is something that we

@@ -50,21 +50,23 @@ const PublicNavbar = () => {
   console.log(show);
   return (
     <div className={`Nav ${show && "nav-white"}`}>
-      <Navbar.Brand
-        as={Link}
-        to="/"
-        id="logo"
-        className="mr-auto"
-        style={{ paddingRight: "30px" }}
-      >
-        {" "}
-        eBasketBall
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto"></Nav>
-        {!loading && <>{isAuthenticated ? authLinks : publicLinks}</>}
-      </Navbar.Collapse>
+      <Navbar style={{ width: "100%" }}>
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          id="logo"
+          className="mr-auto"
+          style={{ paddingRight: "30px" }}
+        >
+          {" "}
+          eBasketBall
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto"></Nav>
+          {!loading && <>{isAuthenticated ? authLinks : publicLinks}</>}
+        </Navbar.Collapse>
+      </Navbar>
     </div>
   );
 };

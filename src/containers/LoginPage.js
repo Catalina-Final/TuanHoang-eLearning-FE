@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
   if (isAuthenticated) return <Redirect to="/" />;
   return (
-    <Container>
+    <Container style={{ marginTop: "30vh" }}>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
           <Form onSubmit={handleSubmit}>

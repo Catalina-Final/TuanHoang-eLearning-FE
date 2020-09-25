@@ -73,7 +73,7 @@ main {
   transition: all 1.5s;
 }
 .nav-white {
-  background-color: black;
+  background-color: white;
 }
 #logo {
   padding-left: 2vw;

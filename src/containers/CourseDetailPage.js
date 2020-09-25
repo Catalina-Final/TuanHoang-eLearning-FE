@@ -40,52 +40,55 @@ const CourseDetailPage = () => {
         <Col xs={8}>
           <h2>Description</h2>
           <p>
-            The University of Illinois’ Gies College of Business, consistently
-            ranked among the nation's top three accounting programs, is a
-            revered destination for accounting education globally. The online
-            Master of Science in Accounting (iMSA) provides students with skills
-            in analytical thinking, data mining, and strategic accounting. The
-            accounting degree is intentionally flexible to address the needs of
-            today’s students: whether they seek to begin their career as an
-            accountant, become a CPA, improve their standing in the accounting
-            field and become a CFO, or want to leverage analytical skills in
-            their existing non-accounting career.
+            The Ebasketballs, consistently ranked among the nation's top three
+            accounting programs, is a revered destination for accounting
+            education globally. The online provides students with skills in
+            thinking, data mining, and strategic accounting. The accounting
+            degree is intentionally flexible to address the needs of today’s
+            students: whether they seek to begin their career as an accountant,
+            become a pro, improve their standing in the accounting field and
+            become a god, or want to leverage skills in their existing
+            non-accounting career.
           </p>
           <h2>Outcomes</h2>
           <p>
-            The accounting industry is undergoing rapid change. New accountants
-            need to become proficient in leading analytical techniques and
-            tools; programming in Python and R, data mining, statistical
-            analysis and regression. All of this on top of a traditional
-            accounting education. The iMSA meets these needs with instruction
+            The Game is undergoing rapid change. New player need to become
+            proficient in leading techniques and tools; . All of this on top of
+            a traditional accounting education. These needs with instruction
             from some of the very best accounting faculty in the world.
             Graduates from our program are in high-demand because they possess
             the most sought-after skills. Our alumni have gone on to become
-            world-renowned founders of businesses, CEOs, CFOs, accounting firm
-            partners, entrepreneurs, and other business leaders. The iMSA is
-            flexibly designed to meet the needs of the modern day student;
-            whether you want to transition into accounting, sit for the CPA
-            exam, become a CFO, or apply leading analytics skills into your
-            existing career.
+            world-renowned founders of businesses, , accounting firm partners,
+            entrepreneurs, and other business leaders. Theis flexibly designed
+            to meet the needs of the modern day student; whether you want to
+            transition into accounting, sit for the exam, become a pro, or apply
+            leading basket skills into your existing skills.
           </p>
         </Col>
         <Col className="test">
-          <p>cost</p>
-          <p>duration</p>
-          <p>benefit</p>
-          <p>outcome</p>
+          <p>
+            Cost<span>19.99$</span>
+          </p>
+          <p>
+            Duration<span>12 weeks</span>
+          </p>
+          <p>
+            Benefit<span>10 hours court hire</span>
+          </p>
+          <p>
+            Outcome<span>able to perform skills</span>
+          </p>
           <br></br>
-          <div style={{ border: "1px solid grey" }}>
-            <p>Requirement</p>
-            <p>Requirement</p>
-            <p>Requirement</p>
-            <p>Requirement</p>
+          <div>
+            <p>Stamina basic</p>
+            <p>Advance handingling</p>
+            <p>Shooting basic</p>
+            <p>Mental</p>
             <ul>
-              <li>Equipment</li>
-              <li>Equipment</li>
-              <li>Equipment</li>
-              <li>Equipment</li>
-              <li>Equipment</li>
+              <li>Trainers</li>
+              <li>Basketball Sneaker</li>
+              <li>Phone Camera</li>
+              <li>Headphones</li>
             </ul>
           </div>
         </Col>
