@@ -10,7 +10,7 @@ const PublicNavbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.auth.loading);
   const dispatch = useDispatch();
-
+  const [show, handleShow] = useState(false);
   const handleLogout = () => {
     dispatch(authActions.logout());
   };
@@ -36,12 +36,9 @@ const PublicNavbar = () => {
       </Nav.Link>
     </Nav>
   );
-
-  const [show, handleShow] = useState(false);
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scollY > 1) {
+      if (window.scrollY > 100) {
         handleShow(true);
       } else handleShow(false);
     });
@@ -52,36 +49,23 @@ const PublicNavbar = () => {
 
   console.log(show);
   return (
-    <Navbar className={`nav-bar ${show && "nav-white"}`} expand="lg">
+    <div className={`Nav ${show && "nav-white"}`}>
       <Navbar.Brand
         as={Link}
         to="/"
+        id="logo"
         className="mr-auto"
         style={{ paddingRight: "30px" }}
       >
-        <img
-          src={icon}
-          width="45"
-          height="45"
-          className="d-inline-block align-top"
-          alt="Elearning icon"
-        />
+        {" "}
+        eBasketBall
       </Navbar.Brand>
-      <Navbar.Brand
-        as={Link}
-        to="/"
-        className="mr-auto"
-        style={{ paddingRight: "30px" }}
-      >
-        eBall
-      </Navbar.Brand>
-
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto"></Nav>
         {!loading && <>{isAuthenticated ? authLinks : publicLinks}</>}
       </Navbar.Collapse>
-    </Navbar>
+    </div>
   );
 };
 

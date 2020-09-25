@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { courseActions } from "../redux/actions";
 import { ClipLoader } from "react-spinners";
 import { useHistory } from "react-router-dom";
+import Landing from "../components/Landing";
 
+const banner = require("../image/Banner.jpg");
 const HomePage = () => {
   //Fetching getAllBlog at home page
   //>>>get current state<<<
@@ -26,20 +28,43 @@ const HomePage = () => {
   return (
     <>
       {loading ? (
-        <ClipLoader color="#f86c6b" size={150} loading={loading} />
+        <div>
+          <div className="push-spaces"></div>
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <h4 style={{ fontFamily: "Lobster" }}>Passing the ball</h4>
+            <ClipLoader color="#00000" size={150} loading={true} />
+          </div>
+        </div>
       ) : (
         <div style={{ backgroundColor: "none" }}>
-          <Jumbotron fluid className="homepage-jumbotron-1">
+          <Landing />
+          <Container style={{ padding: "30px" }}>
+            <div className="container d-flex flex-column text-center justify-content-center align-content-center align-items-center">
+              <img src={banner} style={{ objectFit: "cover" }} />
+              <p>
+                It's more than training. Being in a environment to be able to
+                learn, support and challenge each other is something that we
+                truly emphasize. This has created a brotherhood between us that
+                stretches over age, school or ethnicity. We are all here to get
+                better and respect each others hard work.{" "}
+              </p>
+              <h5 style={{ fontFamily: "Lobster" }}>
+                Focus, Effort and Enthusiasm. Big Ears. Big Eyes. Big Heart.{" "}
+              </h5>
+              <h5>FOR THE LOVE OF THE GAME. </h5>
+            </div>
+          </Container>
+          <Jumbotron className="homepage-jumbotron-1">
             <Container className="push-spaces">
               <br></br>
               <br></br>
             </Container>
           </Jumbotron>
-          <div style={{ textAlign: "center" }}>
-            Start building your value now !
+          <div style={{ textAlign: "center", fontFamily: "Lobster" }}>
+            Step Up Your Game
           </div>
           <div>
-            <h4 style={{ textAlign: "center" }}>Courses</h4>
+            <h3 style={{ textAlign: "center" }}>Courses</h3>
             {courses.length ? (
               <Row className="scroll-card-deck">
                 {courses.map((course) => (

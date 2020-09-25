@@ -7,9 +7,9 @@
 a {
   color: inherit;
 }
-.app {
+/* .app {
   color: black;
-}
+} */
 
 .button {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
@@ -47,30 +47,17 @@ a {
   text-decoration: underline;
 }
 .homepage-jumbotron-1 {
-  background-image: url("https://coverfiles.alphacoders.com/367/36725.jpg");
+  background-image: url("https://wallpapercave.com/wp/4efFVCU.jpg");
   background-size: cover;
+  /* object-fit: contain; */
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
 }
 .push-spaces {
-  height: 50vh;
+  height: 40vh;
 }
 .home-footer {
   background-color: black;
-}
-.nav-bar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1;
-  transition-timing-function: ease-out;
-  transition: all 1.5s;
-}
-.nav-white {
-  background-color: pink;
 }

@@ -22,7 +22,13 @@ function App() {
   return (
     <>
       {isAuthenticated === undefined ? (
-        <ClipLoader color="#00000" size={150} loading={true} />
+        <div>
+          <div className="push-spaces"></div>
+          <div className="d-flex flex-column justify-content-center align-items-center">
+            <h4 style={{ fontFamily: "Lobster" }}>Passing the ball</h4>
+            <ClipLoader color="#00000" size={150} loading={true} />
+          </div>
+        </div>
       ) : (
         <Router>
           <Routes />
