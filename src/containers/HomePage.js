@@ -69,12 +69,15 @@ const HomePage = () => {
             {courses.length ? (
               <Row className="scroll-card-deck">
                 {courses.map((course) => (
-                  <CourseCard
-                    course={course}
-                    key={course._id}
-                    handleClick={handleClickCourseCard}
-                  />
+                  <Col xs={12} md={2}>
+                    <CourseCard
+                      course={course}
+                      key={course._id}
+                      handleClick={handleClickCourseCard}
+                    />
+                  </Col>
                 ))}
+
                 <div
                   style={{
                     background: "rgb(0,0,0)",
