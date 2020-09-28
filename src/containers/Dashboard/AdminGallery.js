@@ -80,11 +80,14 @@ const AdminGallery = () => {
                 <td>{course.units.length}</td>
                 <td>{new Date(course.createdAt).toDateString()}</td>
                 <td>{course.enrollmentCount}</td>
+
                 <td>
-                  {course.teachers.reduce(
-                    (names, teacher) => names + teacher.teacherName,
-                    ""
-                  )}
+                  <li>
+                    {course.teachers.reduce(
+                      (names, teacher) => names + teacher.teacherName,
+                      ""
+                    )}
+                  </li>
                 </td>
                 <td>
                   <Button
