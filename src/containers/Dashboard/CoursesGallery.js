@@ -48,7 +48,7 @@ export const EnrolledCourse = ({ course, handleClickCourse }) => {
     <Card className="card-overflow" style={{ maxWidth: "30px" }}>
       <Card.Img
         variant="top"
-        src={course.image}
+        src={course && course.image}
         width="30px"
         height="200px"
         style={{ boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)" }}
