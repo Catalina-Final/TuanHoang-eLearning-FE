@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Nav } from "react-bootstrap";
+import { Card, Image, Nav } from "react-bootstrap";
 import Moment from "react-moment";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -24,16 +24,21 @@ const SideMenu = () => {
           </Nav.Link>
           <div className="container-fluid">
             <Card>
-              <Card.Img
+              <Image
+                roundedCircle
                 variant="top"
                 src={currentUser.avatar}
-                height="200px"
-                style={{ boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)" }}
+                // src="https://ftw.usatoday.com/wp-content/uploads/sites/90/2020/02/steph.jpg?w=1000&h=600&crop=1"
+                height="180px"
+                style={{
+                  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+                  objectFit: "cover",
+                }}
                 att="Card image"
               />
               <Card.Body>
                 <Card.Title>{currentUser.name}</Card.Title>
-                <Card.Text>somthing here</Card.Text>
+                <Card.Text>"Ready to be the next star"</Card.Text>
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">
@@ -51,7 +56,7 @@ const SideMenu = () => {
             activeClassName="active"
             strict={true}
           >
-            Courses
+            Content
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
@@ -71,7 +76,7 @@ const SideMenu = () => {
             activeClassName="active"
             strict={true}
           >
-            Tools
+            Support
           </Nav.Link>
         </Nav.Item>
       </div>
