@@ -30,7 +30,7 @@ const DashboardLayout = () => {
       <Container fluid style={{ marginTop: "13vh", paddingBottom: "40vh" }}>
         <Row>
           <SideMenu />
-          <Col>
+          <Col sx={12} md={8} lg={10}>
             <AlertMsg />
             <Switch>
               <Route path="/dashboard/courses" component={divertRouteRole} />

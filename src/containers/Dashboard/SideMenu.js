@@ -9,7 +9,7 @@ const SideMenu = () => {
   const currentUser = useSelector((state) => state.auth.user);
 
   return (
-    <Nav className="col-md-6 col-lg-2 d-md-block bg-light sidebar collapse">
+    <Nav className="col-md-4 col-lg-2 d-md-block bg-light sidebar collapse">
       <div className="sidebar-sticky pt-3">
         <Nav.Item>
           <Nav.Link

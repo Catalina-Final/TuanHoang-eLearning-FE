@@ -22,7 +22,7 @@ const CoursesGallery = () => {
   };
   return (
     <>
-      <Container fluid>
+      <Container>
         <h4 className="mt-3">Course Gallery</h4>
         <h6>Enrolled Course</h6>
         <Row className="scroll-card-deck">
