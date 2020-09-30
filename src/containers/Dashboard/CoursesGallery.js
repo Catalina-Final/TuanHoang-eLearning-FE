@@ -34,7 +34,7 @@ const CoursesGallery = () => {
             />
           ))}
         </Row>
-        <h6>Your Progress</h6>
+        {/* <h6>Your Progress</h6> */}
         {/* <Line /> */}
       </Container>
     </>
