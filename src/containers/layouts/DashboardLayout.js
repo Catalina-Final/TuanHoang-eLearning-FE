@@ -33,11 +33,7 @@ const DashboardLayout = () => {
           <Col>
             <AlertMsg />
             <Switch>
-              <Route
-                exact
-                path="/dashboard/courses"
-                component={divertRouteRole}
-              />
+              <Route path="/dashboard/courses" component={divertRouteRole} />
             </Switch>
           </Col>
         </Row>
