@@ -7,6 +7,7 @@ import { authActions, courseActions } from "../../redux/actions";
 import AssignModal from "./AdminModals/AssignModal";
 import CourseEditModal from "./AdminModals/CourseEditModal";
 import DeleteConfirm from "./AdminModals/DeleteConfirm";
+import UserChart from "./UserChart";
 const AdminGallery = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.course.loading);
@@ -136,6 +137,7 @@ const AdminGallery = () => {
           );
         })}
       </Table>
+      <UserChart />
       <Modal
         show={show}
         onHide={handleClose}
