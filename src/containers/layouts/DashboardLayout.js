@@ -27,10 +27,10 @@ const DashboardLayout = () => {
     <>
       <PublicNavbar />
 
-      <Container fluid style={{ marginTop: "30vh" }}>
+      <Container fluid style={{ marginTop: "13vh", paddingBottom: "40vh" }}>
         <Row>
           <SideMenu />
-          <Col md={9} lg={10}>
+          <Col>
             <AlertMsg />
             <Switch>
               <Route
@@ -42,6 +42,32 @@ const DashboardLayout = () => {
           </Col>
         </Row>
       </Container>
+      <Row
+        className="d-flex justify-content-between"
+        style={{ backgroundColor: "grey" }}
+      >
+        <div
+          className="d-flex justify-content-between"
+          style={{ width: "50vw", paddingLeft: "2vw" }}
+        >
+          <div>
+            <a href="/">Legal</a>
+          </div>
+          <div>
+            <a href="/">Privacy Center</a>
+          </div>
+          <div>
+            <a href="/">Privacy Policy</a>
+          </div>
+          <div>
+            <a href="/">Cookies</a>
+          </div>
+          <div>
+            <a href="/">About Ads</a>
+          </div>
+        </div>
+        <div style={{ paddingRight: "3vw" }}>Vietnam</div>
+      </Row>
     </>
   );
 };
