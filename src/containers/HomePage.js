@@ -6,6 +6,9 @@ import { courseActions } from "../redux/actions";
 import { ClipLoader } from "react-spinners";
 import { useHistory } from "react-router-dom";
 import Landing from "../components/Landing";
+import BeforeCourse from "./BeforeCourse";
+import BeforeCourse2 from "./BeforeCourse2";
+import BetweenBeforeCourse from "./BetweenBeforeCourse";
 
 const banner = require("../image/Banner.jpg");
 const HomePage = () => {
@@ -49,23 +52,22 @@ const HomePage = () => {
                 stretches over age, school or ethnicity. We are all here to get
                 better and respect each others hard work.{" "}
               </p>
+
               <h5 style={{ fontFamily: "Lobster" }}>
                 Focus, Effort and Enthusiasm. Big Ears. Big Eyes. Big Heart.{" "}
               </h5>
               <h5>FOR THE LOVE OF THE GAME. </h5>
             </div>
           </Container>
-          <Jumbotron className="homepage-jumbotron-1">
-            <Container className="push-spaces">
-              <br></br>
-              <br></br>
-            </Container>
-          </Jumbotron>
-          <div style={{ textAlign: "center", fontFamily: "Lobster" }}>
+          <BeforeCourse />
+          <BetweenBeforeCourse />
+          <BeforeCourse2 />
+          <h4 style={{ textAlign: "center", fontFamily: "Lobster" }}>
             Step Up Your Game
-          </div>
+          </h4>
           <div>
-            <h3 style={{ textAlign: "center" }}>Courses</h3>
+            <h3 style={{ textAlign: "center" }}>Our Skill Courses</h3>
+
             {courses.length ? (
               <Row className="scroll-card-deck">
                 {courses.map((course) => (
@@ -94,6 +96,23 @@ const HomePage = () => {
               <p>no course</p>
             )}
           </div>
+          <div
+            className="d-flex flex-column text-center justify-content-between"
+            style={{ paddingTop: "2vh", paddingBottom: "2vh" }}
+          >
+            <h3 style={{ fontFamily: "Lobster", fontWeight: "bold" }}>
+              Alumini Highlights
+            </h3>
+            <h3 style={{ textAlign: "center" }}>Next Level vs RMIT</h3>
+            <iframe
+              id="ytplayer"
+              type="text/html"
+              width="100%"
+              height="360"
+              src="https://www.youtube.com/embed/xU7bo_r5wXI?autoplay=0&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+          </div>
 
           <footer className="home-footer">
             <div style={{ padding: "2vw" }}>
@@ -103,7 +122,6 @@ const HomePage = () => {
                   eBall
                 </h4>
               </div>
-
               <Row>
                 <Col style={{ paddingLeft: "0" }}>
                   <h6>Company</h6>

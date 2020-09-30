@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { authActions } from "../../redux/actions";
 
 // import { logo } from "";
-const icon = require("../../image/icon.png");
+
 const PublicNavbar = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.auth.loading);

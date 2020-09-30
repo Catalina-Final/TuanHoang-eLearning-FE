@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Modal, Table } from "react-bootstrap";
-import Moment from "react-moment";
+import { Button, Form, Modal } from "react-bootstrap";
+
 import { useDispatch, useSelector } from "react-redux";
 import { authActions, courseActions } from "../../../redux/actions";
 const AssignModal = ({ course, handleClose }) => {
   const selectedCourse = useSelector((state) => state.course.selectedCourse);
   const users = useSelector((state) => state.auth.users);
-  const currentUser = useSelector((state) => state.auth.user);
+  // const currentUser = useSelector((state) => state.auth.user);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,9 +17,9 @@ const AssignModal = ({ course, handleClose }) => {
   const [formData, setFormData] = useState({
     selectedCourse: selectedCourse,
   });
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ const AssignModal = ({ course, handleClose }) => {
             <Form.Label>Example select</Form.Label>
             <Form.Control as="select">
               {users
-                .filter((el) => el.role == "teacher")
+                .filter((el) => el.role === "teacher")
                 .map((e) => (
                   <option value={e._id} key={e._id}>
                     {e.name}

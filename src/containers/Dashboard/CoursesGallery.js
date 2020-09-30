@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Container, Card, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import Moment from "react-moment";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { Link } from "react-router-dom";
+// import Moment from "react-moment";
 import { courseActions } from "../../redux/actions";
 
 const CoursesGallery = () => {
