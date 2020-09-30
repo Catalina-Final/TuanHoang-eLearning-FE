@@ -66,7 +66,7 @@ const enrollCourse = (courseId, accessToken) => async (dispatch) => {
     });
     dispatch(authActions.getCurrentUser(accessToken));
     dispatch(alertActions.setAlert("Welcome to the course", "success"));
-    dispatch(redirectActions.setRedirectTo("/"));
+    dispatch(redirectActions.setRedirectTo("/dashboard"));
   } catch (error) {
     dispatch({ type: types.ENROLL_COURSE_FAILURE, payload: error });
   }

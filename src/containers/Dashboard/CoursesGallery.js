@@ -3,10 +3,9 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Container, Card, Row } from "react-bootstrap";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Link } from "react-router-dom";
-// import Moment from "react-moment";
+import { Line } from "react-chartjs-2";
 import { courseActions } from "../../redux/actions";
+import { useHistory } from "react-router-dom";
 
 const CoursesGallery = () => {
   const dispatch = useDispatch();
@@ -17,6 +16,10 @@ const CoursesGallery = () => {
   useEffect(() => {
     dispatch(courseActions.getEnrollCourses());
   }, [dispatch]);
+  const history = useHistory();
+  const handleClickCourse = (courseId) => {
+    history.push(`/course/${courseId}`);
+  };
   return (
     <>
       <Container fluid>
@@ -24,10 +27,15 @@ const CoursesGallery = () => {
         <h6>Enrolled Course</h6>
         <Row className="scroll-card-deck">
           {enrollCourses.map((course) => (
-            <EnrolledCourse key={course._id} course={course.course} />
+            <EnrolledCourse
+              key={course._id}
+              course={course.course}
+              handleClickCourse={handleClickCourse}
+            />
           ))}
         </Row>
-        <h6>Suggested Course</h6>
+        <h6>Your Progress</h6>
+        {/* <Line /> */}
       </Container>
     </>
   );
@@ -35,13 +43,9 @@ const CoursesGallery = () => {
 
 export default CoursesGallery;
 
-export const EnrolledCourse = ({ course }) => {
-  const handleClick = () => {
-    console.log(0);
-  };
-
+export const EnrolledCourse = ({ course, handleClickCourse }) => {
   return (
-    <Card className="card-overflow">
+    <Card className="card-overflow" style={{ maxWidth: "30px" }}>
       <Card.Img
         variant="top"
         src={course.image}
@@ -49,6 +53,7 @@ export const EnrolledCourse = ({ course }) => {
         height="200px"
         style={{ boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)" }}
         att="Card image"
+        onClick={() => handleClickCourse(course._id)}
       />
     </Card>
   );
