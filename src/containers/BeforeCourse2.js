@@ -8,7 +8,7 @@ const BeforeCourse2 = () => {
         <Row>
           <Col xs={12} sm={6} md={4}>
             <Image
-              src="https://lh5.googleusercontent.com/DfUwxJhXWXOv7Fvlxe8Pm4vDO_mtNFwezU2Fmwt9b67FBOfeB8mfsZsXlPXZwH0KLqY8gYcX_Kp89RPbyFeq0i6Wl3V2ciiDr-l1eiCmhh_WdZ5vmA=w1280"
+              src="https://image.cnbcfm.com/api/v1/image/105642793-1545408067309gettyimages-1074484904.jpeg?v=1545408690"
               roundedCircle
               width="100%"
               height="100%"
@@ -29,7 +29,7 @@ const BeforeCourse2 = () => {
               average more than ten points a game.
             </p>
             <footer className="blockquote-footer">
-              Daniel Co Tran <cite title="Source Title">Year of 2018</cite>
+              John Doe <cite title="Source Title">Year of 2018</cite>
             </footer>
           </Col>
         </Row>
