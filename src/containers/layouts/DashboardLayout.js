@@ -1,6 +1,6 @@
 import React from "react";
 import PublicNavbar from "../PublicNavbar";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { Switch, Route } from "react-router-dom";
 import AlertMsg from "./AlertMsg";
 import SideMenu from "../Dashboard/SideMenu";
@@ -23,6 +23,7 @@ const DashboardLayout = () => {
     }
     return;
   };
+
   return (
     <>
       <PublicNavbar />
@@ -32,7 +33,10 @@ const DashboardLayout = () => {
           <SideMenu />
           <Col sx={12} md={8} lg={10}>
             <AlertMsg />
+
             <Switch>
+              {/* <Route path="/dashboard" component={FakeCalendar} /> */}
+
               <Route path="/dashboard/courses" component={divertRouteRole} />
             </Switch>
           </Col>
@@ -69,3 +73,19 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+export const FakeCalendar = () => {
+  return (
+    <>
+      <Container className="text-center">
+        <h3 style={{ fontFamily: "Lobster" }}> Welcome to E-Basketball</h3>
+        <h5>Academy Dashboard</h5>
+        <p>
+          In here you will find all the material that assist your journey at
+          E-Basketball Please use the side panel on the left to navigate through
+          the system{" "}
+        </p>
+        <Image src="https://www.betacalendars.com/uploads/2019/01/September-2020-Calendar.jpg"></Image>
+      </Container>
+    </>
+  );
+};
